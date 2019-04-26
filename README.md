@@ -1,1 +1,4 @@
-# rundeck-api-specs
+# Rundeck API Specs
+
+## APIs
+- [Rundeck API](./rundeck)

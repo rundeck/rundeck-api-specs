@@ -1,0 +1,54 @@
+Rundeck OpenAPI Spec
+====================
+
+### Spec Progress
+- [x] System Info
+- [ ] List Metrics
+  - [x] Metrics Links
+  - [ ] Metrics Data
+  - [ ] Metrics Healthcheck
+  - [ ] Metrics Threading
+  - [ ] Metrics Ping
+- [x] User Profile
+- [x] Log Storage
+- [x] Execution Mode
+- [x] Cluster Mode
+- [x] ACLs
+- [x] Jobs
+- [ ] Executions
+  - [x] Get Executions for a Job
+  - [x] Delete all Executions for a Job
+  - [x] Listing Running Executions
+  - [x] Execution Info
+  - [x] List Input Files for an Execution
+  - [x] Delete an Execution
+  - [x] Bulk Delete Executions
+  - [x] Execution Query
+  - [ ] Execution State
+  - [ ] Execution Output
+  - [ ] Execution Output with State
+  - [ ] Aborting Executions
+- [ ] Adhoc
+- [ ] Key Storage
+  - [x] Upload keys
+  - [x] List keys
+  - [ ] Get Key Metadata
+  - [x] Get Key Contents
+  - [x] Delete Keys
+- [ ] Projects
+  - [x] Listing Projects
+  - [x] Project Creation
+  - [x] Getting Project Info
+  - [x] Project Deletion
+  - [x] Project Configuration
+  - [x] Project Configuration Keys
+  - [x] Project Archive Export
+  - [ ] Project Archive Export Async
+  - [ ] Project Archive Export Status
+  - [x] Project Archive Import
+  - [ ] Updating and Listing Resources for a Project
+  - [x] Project Readme File
+  - [ ] Project ACLs
+- [ ] Listing History
+- [ ] Resources/Nodes
+- [ ] SCM
