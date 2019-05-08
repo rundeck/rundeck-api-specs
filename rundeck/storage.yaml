@@ -13,6 +13,36 @@ consumes:
 - application/json
 
 paths:
+  /storage/keys/{keyPath}:
+    get:
+      summary: Get key material at the specified PATH
+      description: |
+        This enpoint is impossible to describe properly in OAPI 2.0 .  
+        Depending on resources type and accepts header GET can return a list of key metadata,
+        single metadata, or the key contents.
+      operationId: storageKeyGetMaterial
+      tags:
+      - storage
+      parameters:
+      - name: keyPath
+        in: path
+        required: True
+        description: Key path
+        type: string
+        x-ms-skip-url-encoding: true
+      - name: accept
+        in: header
+        required: true
+        type: string
+        enum: ['*/*']
+      responses:
+        '200':
+          description: Content
+          schema:
+            type: object
+            format: file
+        '404':
+          description: No content found at this location
   /storage/keys/{path}:
     get:
       summary: List resources at the specified PATH
@@ -20,7 +50,7 @@ paths:
         This enpoint is impossible to describe properly in OAPI 2.0 .  
         Depending on resources type and accepts header GET can return a list of key metadata,
         single metadata, or the key contents.
-      operationId: storageKeyGet
+      operationId: storageKeyGetMetadata
       tags:
       - storage
       parameters:
@@ -32,8 +62,9 @@ paths:
         x-ms-skip-url-encoding: true
       - name: accept
         in: header
+        required: true
         type: string
-        default: 'application/json'
+        enum: ['application/json']
       responses:
         '200':
           description: Content
@@ -54,6 +85,10 @@ paths:
         description: Key path
         type: string
         x-ms-skip-url-encoding: true
+      - name: content-type
+        in: header
+        type: string
+        default: 'application/pgp-keys'
       - name: File
         in: body
         required: true
@@ -80,6 +115,10 @@ paths:
         description: Key path
         type: string
         x-ms-skip-url-encoding: true
+      - name: content-type
+        in: header
+        type: string
+        default: 'application/pgp-keys'
       - name: File
         in: body
         required: true
