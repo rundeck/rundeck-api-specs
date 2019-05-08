@@ -202,6 +202,8 @@ paths:
     post:
       summary: Import job definitions in XML or YAML formats.
       operationId: projectJobsImport
+      produces:
+      - text/plain; charset=utf-8
       tags:
       - job
       - project
@@ -211,9 +213,47 @@ paths:
         required: True
         description: Name of the project to import jobs into.
         type: string
+      - name: content-type
+        in: header
+        required: false
+        type: string
+        default: application/xml
+      - name: accept
+        in: header
+        required: false
+        type: string
+        default: application/xml
+      - name: fileFormat
+        in: query
+        type: string
+        required: false
+        default: xml
+        x-ms-parameter-grouping: {name: job-import-options}
+      - name: dupeOption
+        in: query
+        type: string
+        required: false
+        default: create
+        x-ms-parameter-grouping: {name: job-import-options}
+      - name: uuidOption
+        in: query
+        type: string
+        required: false
+        default: preserve
+        x-ms-parameter-grouping: {name: job-import-options}
+      - name: File
+        in: body
+        required: true
+        x-ms-parameter-location: method 
+        schema:
+          type: object
+          format: file
       responses:
-        '200': {description: Expected response to a valid request.}
-
+        '200':
+          description: Expected response to a valid request.
+          schema:
+            type: object
+            format: file
   /project/{project}/import:
     put:
       summary: Import project archive.

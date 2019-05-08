@@ -168,8 +168,8 @@ paths:
         '200':
           description: Expected response to a valid request.
           schema:
-            properties:
-              content: {type: string}
+            type: object
+            format: file
     delete:
       summary: Delete a single job definition.
       operationId: jobDelete
@@ -180,7 +180,7 @@ paths:
         in: path
         required: True
         description: ID of job to delete.
-        type: number
+        type: string
       responses:
         '204':
           description: Job was deleted.

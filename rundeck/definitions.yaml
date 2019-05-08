@@ -397,11 +397,18 @@ ExecuteJobRequest:
       description: Option value for option named `OPTNAME`. If specified the `argString` value is ignored (*API v18* or later).
       type: object
 
+StorageKeyMetaType:
+  type: string
+  enum: [private, public]
+  x-ms-enum: {
+    name: StorageKeyMetaType
+  }
+
 StorageKeyMetadata:
   properties:
     meta:
       properties:
-        Rundeck-key-type:     {type: string, enum: [private, public]}
+        Rundeck-key-type:     {$ref: '#/definitions/StorageKeyMetaType'}
         Rundeck-content-mask: {type: string}
         Rundeck-content-size: {type: string}
         Rundeck-content-type: {type: string}
@@ -415,6 +422,12 @@ StorageKeyListResponse:
     resources:
       type: array
       items: {$ref: '#/definitions/StorageKeyMetadata'}
+    meta:
+      properties:
+        Rundeck-key-type:     {$ref: '#/definitions/StorageKeyMetaType'}
+        Rundeck-content-mask: {type: string}
+        Rundeck-content-size: {type: string}
+        Rundeck-content-type: {type: string}
     url:  {type: string}
     type: {type: string}
     path: {type: string}
