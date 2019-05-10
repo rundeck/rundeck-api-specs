@@ -169,6 +169,8 @@ paths:
         '200':
           description: Expected response to a valid request
           schema: {$ref: '#/definitions/AclList'}
+        '404':
+          description: ACL does not exist
 
   /system/acl/{policyName}:
     get:

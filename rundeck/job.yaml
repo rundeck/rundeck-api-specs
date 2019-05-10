@@ -170,6 +170,8 @@ paths:
           schema:
             type: object
             format: file
+        '404':
+          description: Job does not exist
     delete:
       summary: Delete a single job definition.
       operationId: jobDelete
