@@ -189,6 +189,8 @@ paths:
         '200':
           description: Expected response to a valid request
           schema: {$ref: '#/definitions/AclPolicyResponse'}
+        '404':
+          description: Policy not found
     post:  
       summary: Create a policy
       operationId: systemAclPolicyCreate
