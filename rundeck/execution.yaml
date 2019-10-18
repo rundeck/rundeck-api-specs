@@ -168,5 +168,32 @@ paths:
         '200':
           description: Success
 
+  /execution/{id}/output:
+    get:
+      summary: List input files for an execution
+      operationId: executionOutputGet
+      tags:
+      - file
+      - execution
+      parameters:
+      - name: id
+        in: path
+        required: True
+        type: string
+      - name: offset
+        in: query
+        required: false
+        type: string
+      - name: maxlines
+        in: query
+        required: false
+        type: number
+        default: 5000
+      responses:
+        '200':
+          description: List of execution input files
+          schema: {$ref: '#/definitions/ExecutionOutput'}
+
+
 definitions:
   $ref: definitions.yaml 

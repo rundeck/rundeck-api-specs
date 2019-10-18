@@ -54,6 +54,8 @@ paths:
     get:
       summary: Get information about a project
       operationId: projectGet
+      tags:
+      - project
       parameters:
       - name: project
         in: path

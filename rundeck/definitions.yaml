@@ -438,3 +438,45 @@ Paging:
     total:  {type: integer}
     offset: {type: integer}
     max:    {type: integer}
+
+
+ExecutionOutput:
+  required:
+  - id
+  - offset
+  - completed
+  - execCompleted
+  - hasFailedNodes
+  - execState
+  - lastModified
+  - execDuration
+  - percentLoaded
+  - totalSize
+  - retryBackoff
+  - clusterExec
+  - compacted
+  - entries
+  properties:
+    id: {type: string}
+    offset: {type: string}
+    completed: {type: boolean}
+    execCompleted: {type: boolean}
+    hasFailedNodes: {type: boolean}
+    execState: {type: string}
+    lastModified: {type: string}
+    execDuration: {type: number}
+    percentLoaded: {type: number}
+    totalSize: {type: number}
+    retryBackoff: {type: number}
+    clusterExec: {type: boolean}
+    compacted: {type: boolean}
+    entries: {type: array, items: {$ref: '#/definitions/ExecutionOutputEntry'}}
+
+ExecutionOutputEntry:
+  properties:
+    time: {type: string}
+    absolute_time: {type: string}
+    log: {type: string}
+    level: {type: string}
+    stepctx: {type: string}
+    node: {type: string}
