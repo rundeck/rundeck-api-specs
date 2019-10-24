@@ -4,7 +4,6 @@ info:
   title: Rundeck
   license:
     name: MIT
-basePath: '/api/33'
 schemes:
 - http
 produces:
@@ -13,7 +12,7 @@ consumes:
 - application/json
 
 paths:
-  /storage/keys/{keyPath}:
+  /api/26/storage/keys/{keyPath}:
     get:
       summary: Get key material at the specified PATH
       description: |
@@ -43,7 +42,7 @@ paths:
             format: file
         '404':
           description: No content found at this location
-  /storage/keys/{path}:
+  /api/26/storage/keys/{path}:
     get:
       summary: List resources at the specified PATH
       description: |

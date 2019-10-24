@@ -4,7 +4,6 @@ info:
   title: Rundeck
   license:
     name: MIT
-basePath: '/api/33'
 schemes:
 - http
 produces:
@@ -13,7 +12,7 @@ consumes:
 - application/json
 
 paths:
-  /projects:
+  /api/26/projects:
     get:
       summary: List projects
       operationId: projectList
@@ -50,7 +49,7 @@ paths:
         '409':
           description: Conflict
 
-  /project/{project}:
+  /api/26/project/{project}:
     get:
       summary: Get information about a project
       operationId: projectGet
@@ -78,7 +77,7 @@ paths:
       responses:
         '204': {description: Content deleted}
 
-  /project/{project}/config:
+  /api/26/project/{project}/config:
     get:
       summary: Get project config
       operationId: projectConfigGet
@@ -108,7 +107,7 @@ paths:
       responses:
         '200': {description: Project config updated}
 
-  /project/{project}/config/{key}:
+  /api/26/project/{project}/config/{key}:
     get:
       summary: Get project config key
       operationId: projectConfigKeyGet
@@ -168,7 +167,7 @@ paths:
       responses:
         '204': {description: Content deleted}
 
-  /project/{project}/jobs/export:
+  /api/26/project/{project}/jobs/export:
     get:
       summary: Export the job definitions in XML or YAML formats.
       operationId: projectJobsExport
@@ -208,7 +207,7 @@ paths:
           description: Expected response to a valid request.
           schema: {type: string}
 
-  /project/{project}/jobs/import:
+  /api/26/project/{project}/jobs/import:
     post:
       summary: Import job definitions in XML or YAML formats.
       operationId: projectJobsImport
@@ -264,7 +263,7 @@ paths:
           schema:
             type: object
             format: file
-  /project/{project}/import:
+  /api/26/project/{project}/import:
     put:
       summary: Import project archive.
       operationId: projectArchiveImport
@@ -303,7 +302,7 @@ paths:
       responses:
         '200': {description: Expected response to a valid request}
 
-  /project/{project}/export:
+  /api/26/project/{project}/export:
     get:
       summary: Export archive of project synchronously
       operationId: projectArchiveExportSync
@@ -351,7 +350,7 @@ paths:
             type: object
             format: file
 
-  /project/{project}/readme.md:
+  /api/26/project/{project}/readme.md:
     get:
       summary: Get the readme.md contents
       operationId: projectReadmeGet
@@ -397,7 +396,7 @@ paths:
       responses:
         '204': {description: No Content}
 
-  /project/{project}/motd.md:
+  /api/26/project/{project}/motd.md:
     get:
       summary: Get the readme.md contents
       operationId: projectMotdGet

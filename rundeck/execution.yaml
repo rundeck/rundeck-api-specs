@@ -4,7 +4,6 @@ info:
   title: Rundeck
   license:
     name: MIT
-basePath: '/api/33'
 schemes:
 - http
 produces:
@@ -13,7 +12,7 @@ consumes:
 - application/json
 
 paths:
-  /execution/{id}:
+  /api/26/execution/{id}:
     get:
       summary: Get the status of an execution by ID
       operationId: executionStatusGet
@@ -42,7 +41,7 @@ paths:
         '204':
           description: No content
 
-  /executions/delete:
+  /api/26/executions/delete:
     post:
       summary: Bulk delete executions
       operationId: executionBulkDelete
@@ -64,7 +63,7 @@ paths:
           description: Execution deleted response
           schema: {$ref: '#/definitions/JobExecutionDelete'}
 
-  /execution/{id}/state:
+  /api/26/execution/{id}/state:
     get:
       summary: Get detail about the node and step state of an execution by ID. The execution can be currently running or completed.
       operationId: executionStateGet
@@ -79,7 +78,7 @@ paths:
         '200':
           description: Ok
 
-  /execution/{id}/input/files:
+  /api/26/execution/{id}/input/files:
     get:
       summary: List input files for an execution
       operationId: executionInputFilesList
@@ -102,7 +101,7 @@ paths:
                 type: array
                 items: {$ref: '#/definitions/JobInputFileInfo'}
 
-  /project/{project}/executions/running:
+  /api/26/project/{project}/executions/running:
     get:
       summary: List job executions
       operationId: executionListRunning
@@ -120,7 +119,7 @@ paths:
           description: List of executions for job
           schema: {$ref: '#/definitions/ExecutionList'}
 
-  /project/{project}/executions:
+  /api/26/project/{project}/executions:
     get:
       summary: Query for Executions based on Job or Execution details
       operationId: executionQuery
@@ -168,7 +167,7 @@ paths:
         '200':
           description: Success
 
-  /execution/{id}/output:
+  /api/26/execution/{id}/output:
     get:
       summary: List input files for an execution
       operationId: executionOutputGet

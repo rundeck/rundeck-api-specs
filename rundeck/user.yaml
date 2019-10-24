@@ -4,7 +4,6 @@ info:
   title: Rundeck
   license:
     name: MIT
-basePath: '/api/33'
 schemes:
 - http
 produces:
@@ -13,7 +12,7 @@ consumes:
 - application/json
 
 paths:
-  /user/list:
+  /api/26/user/list:
     get:
       produces:
         - 'application/json'
@@ -26,7 +25,7 @@ paths:
           description: Expected response to a valid request
           schema: {type: array, items: { $ref: '#/definitions/User'} }
 
-  /user/info:
+  /api/26/user/info:
     get:
       summary: Get same user profile data
       operationId: userProfileGet
@@ -52,7 +51,7 @@ paths:
           description: Expected response to a valid request
           schema: {$ref: '#/definitions/User'}
 
-  /user/info/{userID}:
+  /api/26/user/info/{userID}:
     get:
       summary: Get another user's profile data
       operationId: userProfileGetById
@@ -89,7 +88,7 @@ paths:
           description: Expected response to a valid request
           schema: {$ref: '#/definitions/User'}
 
-  /user/roles:
+  /api/26/user/roles:
     get:
       summary: List the roles of the authenticated user
       operationId: userRoleList
