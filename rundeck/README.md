@@ -25,7 +25,7 @@ Rundeck OpenAPI Spec
   - [x] Bulk Delete Executions
   - [x] Execution Query
   - [ ] Execution State
-  - [ ] Execution Output
+  - [x] Execution Output
   - [ ] Execution Output with State
   - [ ] Aborting Executions
 - [ ] Adhoc
