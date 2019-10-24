@@ -457,5 +457,21 @@ paths:
           description: Job input file info
           schema: {$ref: '#/definitions/JobInputFileInfo'}
 
+  /job/{id}/workflow:
+    get:
+      summary: Get job workflow tree.
+      operationId: jobWorkflowGet
+      tags:
+      - job
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Expected response to a valid request.
+          schema: {$ref: '#/definitions/JobWorkflowGetResponse'}
+
 definitions:
   $ref: definitions.yaml 

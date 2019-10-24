@@ -480,3 +480,23 @@ ExecutionOutputEntry:
     level: {type: string}
     stepctx: {type: string}
     node: {type: string}
+
+JobWorkflowGetResponse:
+  required:
+  - workflow
+  properties:
+    workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}
+
+WorkflowStep:
+  properties:
+    jobref:
+      properties:
+        name: {type: string}
+        group: {type: string}
+        uuid: {type: string}
+        nodeStep: {type: string}
+        importOptions: {type: boolean}
+    jobId: {type: string}
+    description: {type: string}
+    exec: {type: string}
+    workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}
