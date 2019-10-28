@@ -456,7 +456,7 @@ paths:
           description: Job input file info
           schema: {$ref: '#/definitions/JobInputFileInfo'}
 
-  /api/33/job/{id}/workflow:
+  /api/34/job/{id}/workflow:
     get:
       summary: Get job workflow tree.
       operationId: jobWorkflowGet

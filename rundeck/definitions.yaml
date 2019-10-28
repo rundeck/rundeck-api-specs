@@ -499,4 +499,8 @@ WorkflowStep:
     jobId: {type: string}
     description: {type: string}
     exec: {type: string}
+    script: {type: string}
+    scriptfile: {type: string}
+    scripturl: {type: string}
+    type: {type: string}
     workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}
