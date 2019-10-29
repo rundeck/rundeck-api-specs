@@ -481,12 +481,6 @@ ExecutionOutputEntry:
     stepctx: {type: string}
     node: {type: string}
 
-JobWorkflowGetResponse:
-  required:
-  - workflow
-  properties:
-    workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}
-
 WorkflowStep:
   properties:
     jobref:
@@ -503,4 +497,5 @@ WorkflowStep:
     scriptfile: {type: string}
     scripturl: {type: string}
     type: {type: string}
+    nodeStep: {type: string}
     workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}

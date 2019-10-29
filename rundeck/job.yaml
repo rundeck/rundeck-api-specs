@@ -470,7 +470,11 @@ paths:
       responses:
         '200':
           description: Expected response to a valid request.
-          schema: {$ref: '#/definitions/JobWorkflowGetResponse'}
+          schema: 
+            required:
+            - workflow
+            properties:
+              workflow: {type: array, items: {$ref: '#/definitions/WorkflowStep'}}
 
 definitions:
   $ref: definitions.yaml 
