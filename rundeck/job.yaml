@@ -94,7 +94,7 @@ paths:
         in: path
         required: True
         description: Job ID
-        type: integer
+        type: string
       - name: request
         in: body
         required: false
@@ -102,7 +102,7 @@ paths:
       responses:
         '200':
           description: Expected response for a valid request
-          schema: {$ref: '#/definitions/ExecutionList'}
+          schema: {$ref: '#/definitions/Execution'}
     delete:
       summary: Delete all job executions
       operationId: jobExecutionDelete
