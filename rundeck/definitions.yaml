@@ -439,7 +439,6 @@ Paging:
     offset: {type: integer}
     max:    {type: integer}
 
-
 ExecutionOutput:
   required:
   - id
@@ -472,6 +471,80 @@ ExecutionOutput:
     clusterExec: {type: boolean}
     compacted: {type: boolean}
     entries: {type: array, items: {$ref: '#/definitions/ExecutionOutputEntry'}}
+
+ExecutionState:
+  required:
+  - executionId
+  properties:
+    executionId: {type: number}
+    serverNode: {type: string}
+    executionState: {$ref: '#/definitions/ExecutionStateState'}
+    completed: {type: boolean}
+    targetNodes: {type: array, items: {type: string}}
+    allNodes: {type: array, items: {type: string}}
+    stepCount: {type: number}
+    updateTime: {type: string}
+    startTime: {type: string}
+    endTime: {type: string}
+    nodes:
+      type: object
+      additionalProperties:
+        type: array
+        items: {$ref: '#/definitions/ExecutionStateNodeState'}
+    steps:
+      type: array
+      items: {$ref: '#/definitions/ExecutionStateStep'}
+
+ExecutionStateState:
+  type: string
+  enum: ['SUCCEEDED', 'FAILED', 'RUNNING', 'WAITING']
+  description: State value as used in execution state output
+  x-ms-enum: {
+    name: ExecutionStateState
+  }
+
+ExecutionStateNodeState:
+  required:
+  - executionState
+  - stepctx
+  properties:
+    executionState: {$ref: '#/definitions/ExecutionStateState'}
+    stepctx: {type: string}
+
+ExecutionStateStep:
+  required:
+  - id
+  - stepctx
+  - nodeStep
+  - executionState
+  - duration
+  properties:
+    id: {type: string}
+    stepctx: {type: string}
+    nodeStep: {type: boolean}
+    executionState: {$ref: '#/definitions/ExecutionStateState'}
+    duration: {type: number}
+    startTime: {type: string}
+    endTime: {type: string}
+    updateTime: {type: string}
+    nodeStates:
+      type: object
+      additionalProperties:
+        $ref: '#/definitions/ExecutionStateStepNodeState'
+    hasSubworkflow: {type: boolean}
+    workflow: {$ref: '#/definitions/ExecutionState'}
+
+ExecutionStateStepNodeState:
+  required:
+  - executionState
+  - duration
+  properties:
+    executionState: {$ref: '#/definitions/ExecutionStateState'}
+    duration: {type: number}
+    startTime: {type: string}
+    updateTime: {type: string}
+    endTime: {type: string}
+
 
 ExecutionOutputEntry:
   properties:
