@@ -450,7 +450,6 @@ ExecutionOutput:
   - execState
   - lastModified
   - execDuration
-  - percentLoaded
   - totalSize
   - retryBackoff
   - clusterExec
@@ -458,6 +457,8 @@ ExecutionOutput:
   - entries
   properties:
     id: {type: string}
+    error: {type: string}
+    empty: {type: boolean}
     offset: {type: string}
     completed: {type: boolean}
     execCompleted: {type: boolean}
