@@ -475,6 +475,8 @@ ExecutionOutput:
 ExecutionState:
   required:
   - executionId
+  - serverNode
+  - completed
   properties:
     executionId: {type: number}
     serverNode: {type: string}
@@ -502,6 +504,21 @@ ExecutionStateState:
   x-ms-enum: {
     name: ExecutionStateState
   }
+
+ExecutionStateWorkflow:
+  required:
+  - completed
+  properties:
+    completed: {type: boolean}
+    updateTime: {type: string}
+    startTime: {type: string}
+    endTime: {type: string}
+    stepCount: {type: number}
+    targetNodes: {type: array, items: {type: string}}
+    allNodes: {type: array, items: {type: string}}
+    steps:
+      type: array
+      items: {$ref: '#/definitions/ExecutionStateStep'}
 
 ExecutionStateNodeState:
   required:
@@ -532,7 +549,13 @@ ExecutionStateStep:
       additionalProperties:
         $ref: '#/definitions/ExecutionStateStepNodeState'
     hasSubworkflow: {type: boolean}
-    workflow: {$ref: '#/definitions/ExecutionState'}
+    workflow: {$ref: '#/definitions/ExecutionStateWorkflow'}
+    parameters:
+      type: object
+      additionalProperties: {type: string}
+    parameterStates:
+      type: object
+      additionalProperties: {$ref: '#/definitions/ExecutionStateStep'}
 
 ExecutionStateStepNodeState:
   required:
