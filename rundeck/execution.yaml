@@ -77,6 +77,7 @@ paths:
       responses:
         '200':
           description: Ok
+          schema: {$ref: '#/definitions/ExecutionState'}
 
   /api/26/execution/{id}/input/files:
     get:
@@ -160,9 +161,6 @@ paths:
       - name: adhoc
         in: query
         type: boolean
-
-      
-
       responses:
         '200':
           description: Success
@@ -195,4 +193,4 @@ paths:
 
 
 definitions:
-  $ref: definitions.yaml 
+  $ref: definitions.yaml
