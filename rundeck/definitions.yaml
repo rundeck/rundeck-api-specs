@@ -295,7 +295,7 @@ ExecutionList:
 
 Execution:
   properties:
-    id:           {type: number}
+    id:           {type: string}
     href:         {type: string}
     permalink:    {type: string} 
     status:       {type: string, enum: ['running', 'succeeded', 'failed', 'aborted', 'timedout', 'failed-with-retry', 'scheduled', 'other']}
@@ -478,7 +478,7 @@ ExecutionState:
   - serverNode
   - completed
   properties:
-    executionId: {type: number}
+    executionId: {type: string}
     serverNode: {type: string}
     executionState: {$ref: '#/definitions/ExecutionStateState'}
     completed: {type: boolean}
