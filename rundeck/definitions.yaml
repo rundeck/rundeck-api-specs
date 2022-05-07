@@ -478,7 +478,7 @@ ExecutionState:
   - serverNode
   - completed
   properties:
-    executionId: {type: number}
+    executionId: {type: string}
     serverNode: {type: string}
     executionState: {$ref: '#/definitions/ExecutionStateState'}
     completed: {type: boolean}
